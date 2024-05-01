@@ -1,2 +1,2 @@
 # blog-cms
-A very simple personal blog management system.
+This is a very simple personal blog management system, built with python-flask and postgres as backend.
