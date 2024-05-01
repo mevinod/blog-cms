@@ -45,8 +45,7 @@ def post_detail(post_id):
 def enter_key():
     if request.method == 'POST':
         # Retrieve the key entered by the user
-        entered_key = request.form.get('key')
-        
+        entered_key = request.form.get('key')      
         # Check if the entered key matches the expected key
         if entered_key == SECRET_KEY:
             # Key is correct, store it in the session
@@ -69,16 +68,14 @@ def create_post():
 
     if request.method == 'POST':
         title = request.form.get('title')
-        content = request.form.get('content')
-        
+        content = request.form.get('content')  
         # Check if title and content are provided
         if not title or not content:
             flash('Title and content are required.', 'error')
             return redirect(url_for('create_post'))
         
         # Create a new post object
-        new_post = Post(title=title, content=content)
-        
+        new_post = Post(title=title, content=content)    
         # Add the new post to the database
         db.session.add(new_post)
         db.session.commit()
