@@ -1,17 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
+from config import Config
 
 app = Flask(__name__)
 
-# Configure the database URI
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://user:password@localhost/db'
-
-# Suppress deprecation warning
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-# Secret key for form submission
-SECRET_KEY = 'your_secret_key_here'
-app.secret_key = SECRET_KEY
+app.config.from_object(Config)
 
 # Initialize SQLAlchemy
 db = SQLAlchemy(app)
