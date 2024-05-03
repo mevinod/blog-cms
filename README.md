@@ -4,7 +4,7 @@ This is a very simple personal blog management system, built with python-flask a
 ## Instructions to run standalone
 ### precondition
 > Before starting, you should have connection parameters to postgres and it should be reachable
-
+### Steps
 - Either update the database parameters in the config.py OR export those as environment variable
  `export DATABASE_URL='postgresql://postgres:mysecretpassword@localhost/postgres'`
 - Now, run `python3 app.py`
@@ -12,6 +12,7 @@ This is a very simple personal blog management system, built with python-flask a
 ## Instructions to run docker
 ### precondition
 > Before starting, you should have connection parameters to postgres and it should be reachable
+### Steps
 - export database parameters as environment variable
  `export DATABASE_URL='postgresql://postgres:mysecretpassword@localhost/postgres'`
 - Now, run `docker run -e DATABASE_URL='postgresql://postgres:mysecretpassword@localhost/postgres' --network="host" <image-name>`
