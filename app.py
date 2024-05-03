@@ -41,7 +41,7 @@ def enter_key():
         entered_key = request.form.get('key')
         
         # Check if the entered key matches the expected key
-        if entered_key == SECRET_KEY:
+        if entered_key == Config.SECRET_KEY:
             # Key is correct, store it in the session
             session['key_entered'] = entered_key
             return redirect(url_for('create_post'))
@@ -56,7 +56,7 @@ def enter_key():
 def create_post():
     # Check if the user has entered the correct key
     entered_key = session.get('key_entered')
-    if not entered_key or entered_key != SECRET_KEY:
+    if not entered_key or entered_key != Config.SECRET_KEY:
         flash('Please enter the key first.', 'error')
         return redirect(url_for('enter_key'))
 
@@ -68,7 +68,6 @@ def create_post():
         if not title or not content:
             flash('Title and content are required.', 'error')
             return redirect(url_for('create_post'))
-        
         # Create a new post object
         new_post = Post(title=title, content=content)
         
